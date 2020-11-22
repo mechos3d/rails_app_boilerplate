@@ -1,0 +1,27 @@
+
+## -----------------------------------------------------------------
+
+heroku
+
+1 go to https://dashboard.heroku.com/apps
+  and create a new app
+
+2 ON https://dashboard.heroku.com/apps/this_repo/settings
+  add your ENV-variables
+
+3 setup deployment:
+  https://dashboard.heroku.com/apps/this_erpo/deploy/heroku-git
+
+  I use heroku cli
+
+  `heroku git:remote -a this_repo` in the projects repo
+
+4 Add a file 'heroku.yml' in the repo:
+  ```
+  build:
+    docker:
+      web: Dockerfile
+  run:
+    web: bundle exec puma -C config/puma.rb
+  ```
+
